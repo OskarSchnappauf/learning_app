@@ -45,11 +45,11 @@ lottie_url_ok = "https://assets1.lottiefiles.com/private_files/lf30_uDAsLk.json"
 lottie_json_ok = load_lottieurl(lottie_url_ok)
 #st_lottie(lottie_json)
 
-st.image(image,use_column_width=True)
+st.sidebar.image(image,use_column_width=True)
 #st.image(image,use_column_width=True)
-st.header('Choose a topic to study')
+st.sidebar.header('Choose a topic to study')
 categories = ['-','Basic concepts', 'Chromosomal disorders','Single nucleotide variants', 'Del/Dups']
-option = st.selectbox('',(categories))
+option = st.sidebar.selectbox('',(categories))
 if 'count' not in st.session_state:
      st.session_state.count = 0
 if 'question_count' not in st.session_state:
@@ -153,8 +153,8 @@ st.progress(st.session_state.count)
 
 
 if st.session_state.count == 100 and st.session_state.question_count == 4:
-    st.header('All answers correct!!!')
+    st.sidebar.header('All answers correct!!!')
     st_lottie(lottie_json_happy)
 if st.session_state.count != 100 and st.session_state.question_count == 4:
-    st.header('Not all answers correct, maybe next time!')
+    st.sidebar.header('Not all answers correct, maybe next time!')
     st_lottie(lottie_json_ok)
