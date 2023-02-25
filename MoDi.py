@@ -45,11 +45,11 @@ lottie_url_ok = "https://assets1.lottiefiles.com/private_files/lf30_uDAsLk.json"
 lottie_json_ok = load_lottieurl(lottie_url_ok)
 #st_lottie(lottie_json)
 
-st.sidebar.image(image,use_column_width=True)
+st.image(image,use_column_width=True)
 #st.image(image,use_column_width=True)
-st.sidebar.header('Choose a topic to study')
+st.header('Choose a topic to study')
 categories = ['-','Basic concepts', 'Chromosomal disorders','Single nucleotide variants', 'Del/Dups']
-option = st.sidebar.selectbox('',(categories))
+option = st.selectbox('',(categories))
 if 'count' not in st.session_state:
      st.session_state.count = 0
 if 'question_count' not in st.session_state:
@@ -72,7 +72,7 @@ if option == 'Basic concepts':
                 st.balloons()
                 st.session_state.count += 25
             else:
-                st.write('Unfortunately this is not correct, maybe you want to watch thsi video to refresh your knowledge')
+                st.write('Unfortunately this is not correct, maybe you want to watch this video to refresh your knowledge')
                 st.video('https://www.youtube.com/watch?v=84jlwjvrJwY')
 
 
@@ -153,8 +153,8 @@ st.progress(st.session_state.count)
 
 
 if st.session_state.count == 100 and st.session_state.question_count == 4:
-    st.sidebar.header('All answers correct!!!')
+    st.header('All answers correct!!!')
     st_lottie(lottie_json_happy)
 if st.session_state.count != 100 and st.session_state.question_count == 4:
-    st.sidebar.header('Not all answers correct, maybe next time!')
+    st.header('Not all answers correct, maybe next time!')
     st_lottie(lottie_json_ok)
